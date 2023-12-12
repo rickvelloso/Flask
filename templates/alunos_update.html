@@ -1,0 +1,13 @@
+<html>
+  <body>
+    <form method='post' action="/alunos/update/{{ aluno.id }}">
+      Nome: <input type="text" name="nome" value="{{ aluno.nome }}"><br>
+      CPF: <input type="text" name="cpf" value="{{ aluno.cpf }}"><br>
+      Dia de Nascimento: <input type="number" name="dia" value="{{ aluno.data_nascimento.dia }}"><br>
+      Mês de Nascimento: <input type="number" name="mes" value="{{ aluno.data_nascimento.mes }}"><br>
+      Ano de Nascimento: <input type="number" name="ano" value="{{ aluno.data_nascimento.ano }}"><br>
+      Sexo (M/F): <input type="text" name="sexo" value="{{ aluno.sexo }}"><br>
+      <input type="submit" value="Atualizar">
+    </form>
+  </body>
+</html>

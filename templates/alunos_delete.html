@@ -1,0 +1,9 @@
+<html>
+  <body>
+    Você tem certeza que deseja excluir o aluno {{aluno.nome}}?
+    <form method='post' action='/alunos/delete/{{aluno.id}}'>
+      <input type='submit' value='Sim'>
+      <a href='/alunos/recovery'>Não</a>
+    </form>
+  </body>
+</html>

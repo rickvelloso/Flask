@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Menu</title>
+</head>
+<body>
+
+<div class="menu-container">
+    <div class="menu-item">
+      <a href="{{ url_for('alunos.create') }}" class="menu-link">Adicionar Aluno</a>
+    </div>
+    <div class="menu-item">
+      <a href="{{ url_for('alunos.recovery') }}" class="menu-link">Recuperar Alunos</a>
+    </div>
+</div>
+
+</body>
+</html>
