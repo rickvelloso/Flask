@@ -1,28 +1,33 @@
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #001f3f;
     margin: 0;
-    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .menu-container {
-    width: 80%;
-    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .menu-item {
-    display: inline-block;
-    margin-right: 20px;
+    margin-bottom: 30px; 
 }
 
 .menu-link {
     text-decoration: none;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
+    padding: 15px 30px;
+    background-color: #001f3f;
+    color: #dddae1;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .menu-link:hover {
-    color: #007bff;
+    background-color: #2980b9;
+    transform: scale(1.1); 
 }

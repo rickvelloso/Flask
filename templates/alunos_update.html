@@ -1,13 +1,53 @@
-<html>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='create_styles.css') }}">
+    <title>Atualizar Aluno</title>
+</head>
+<body>
+
+<div class="form-container">
     <form method='post' action="/alunos/update/{{ aluno.id }}">
-      Nome: <input type="text" name="nome" value="{{ aluno.nome }}"><br>
-      CPF: <input type="text" name="cpf" value="{{ aluno.cpf }}"><br>
-      Dia de Nascimento: <input type="number" name="dia" value="{{ aluno.data_nascimento.dia }}"><br>
-      Mês de Nascimento: <input type="number" name="mes" value="{{ aluno.data_nascimento.mes }}"><br>
-      Ano de Nascimento: <input type="number" name="ano" value="{{ aluno.data_nascimento.ano }}"><br>
-      Sexo (M/F): <input type="text" name="sexo" value="{{ aluno.sexo }}"><br>
-      <input type="submit" value="Atualizar">
+        <div class="form-group">
+            <label for="novo_nome">Nome:</label>
+            <input type="text" name="novo_nome" value="{{ aluno.nome }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_cpf">CPF:</label>
+            <input type="text" name="novo_cpf" value="{{ aluno.cpf }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_dia">Dia de Nascimento:</label>
+            <input type="number" name="novo_dia" value="{{ aluno.data_nascimento.dia }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_mes">Mês de Nascimento:</label>
+            <input type="number" name="novo_mes" value="{{ aluno.data_nascimento.mes }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_ano">Ano de Nascimento:</label>
+            <input type="number" name="novo_ano" value="{{ aluno.data_nascimento.ano }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_sexo">Sexo:</label>
+            <select name="novo_sexo" required>
+                <option value="M" {% if aluno.sexo == 'M' %}selected{% endif %}>Masculino</option>
+                <option value="F" {% if aluno.sexo == 'F' %}selected{% endif %}>Feminino</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Atualizar Aluno">
+        </div>
     </form>
-  </body>
+</div>
+
+</body>
 </html>

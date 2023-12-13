@@ -76,8 +76,8 @@ def update(id):
         return render_template('alunos_update.html', aluno=aluno)
 
     elif request.method == 'POST':
-        novo_nome = request.form.get('nome')
-        novo_cpf = request.form.get('cpf')
+        novo_nome = request.form.get('novo_nome')
+        novo_cpf = request.form.get('novo_cpf')
         novo_dia_str = request.form.get('novo_dia')
         novo_mes_str = request.form.get('novo_mes')
         novo_ano_str = request.form.get('novo_ano')
@@ -95,16 +95,17 @@ def update(id):
             except ValueError:
                 return "Erro ao converter para int para novas informações de data de nascimento"
         else:
-            return "Um ou mais valores são None"
+            return "Um ou mais valores de data de nascimento são None"
 
         nova_data_nascimento = DataNascimento(dia=novo_dia,
                                               mes=novo_mes,
                                               ano=novo_ano)
 
-        if not verificar_nome(novo_nome) or not verificar_cpf_unico(
-            novo_cpf,
-            Aluno.query.filter(Aluno.id != id).all()):
-            return 'Erro ao atualizar aluno. Verifique os dados.'
+        if not verificar_nome(novo_nome):
+            return 'Erro: Nome inválido.'
+
+        if not verificar_cpf_unico(novo_cpf, Aluno.query.filter(Aluno.id != id).all()):
+            return 'Erro: CPF já cadastrado para outro aluno.'
 
         aluno.nome = novo_nome
         aluno.cpf = novo_cpf
@@ -116,6 +117,7 @@ def update(id):
         return redirect(url_for('alunos.recovery'))
 
     return 'Método não suportado.'
+
 
 
 

@@ -1,13 +1,54 @@
-<html>
-  <body>
-    <form method='post' action='/alunos/create'>
-      Nome: <input type="text" name="nome"><br>
-      CPF: <input type="text" name="cpf"><br>
-      Dia de Nascimento: <input type="number" name="dia"><br>
-      Mês de Nascimento: <input type="number" name="mes"><br>
-      Ano de Nascimento: <input type="number" name="ano"><br>
-      Sexo (M/F): <input type="text" name="sexo"><br>
-      <input type="submit" value="Cadastrar">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='create_styles.css') }}">
+    <title>Adicionar Aluno</title>
+</head>
+<body>
+
+<div class="form-container">
+    <form method='post' action="/alunos/create">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" required>
+        </div>
+
+        <div class="form-group">
+            <label for="dia">Dia de Nascimento:</label>
+            <input type="number" name="dia" required>
+        </div>
+
+        <div class="form-group">
+            <label for="mes">Mês de Nascimento:</label>
+            <input type="number" name="mes" required>
+        </div>
+
+        <div class="form-group">
+            <label for="ano">Ano de Nascimento:</label>
+            <input type="number" name="ano" required>
+        </div>
+
+        <div class="form-group">
+            <label for="sexo">Sexo:</label>
+            <select name="sexo" required>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Adicionar Aluno">
+        </div>
     </form>
-  </body>
+</div>
+
+</body>
 </html>

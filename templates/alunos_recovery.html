@@ -1,12 +1,23 @@
-<html>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='recovery_list.css') }}">
+    <title>Recuperar Alunos</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>Recuperar Alunos</h1>
     <ul>
-      {% for aluno in alunos %}
-        <li>{{ aluno.nome }} -
-          <a href="/alunos/update/{{ aluno.id }}">editar</a>
-          <a href="/alunos/delete/{{ aluno.id }}">excluir</a>
-        </li>
-      {% endfor %}
+        {% for aluno in alunos %}
+            <li>{{ aluno.nome }} -
+                <a href="/alunos/update/{{ aluno.id }}">editar</a>
+                <a href="/alunos/delete/{{ aluno.id }}">excluir</a>
+            </li>
+        {% endfor %}
     </ul>
-  </body>
+</div>
+
+</body>
 </html>
