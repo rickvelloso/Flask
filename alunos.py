@@ -15,7 +15,7 @@ bp_alunos = Blueprint("alunos", __name__, template_folder="templates")
 
 @bp_alunos.route('/menu')
 def menu():
-    return render_template('menu.html')
+    return render_template('menu_alunos.html')
 
 @bp_alunos.route('/create', methods=['GET', 'POST'])
 def create():

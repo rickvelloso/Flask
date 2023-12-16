@@ -1,0 +1,9 @@
+<html>
+  <body>
+    Você tem certeza que deseja excluir o professor {{professor.nome}}?
+    <form method='post' action='/professores/delete/{{professor.id}}'>
+      <input type='submit' value='Sim'>
+      <a href='/professores/recovery'>Não</a>
+    </form>
+  </body>
+</html>

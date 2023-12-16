@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='create_styles.css') }}">
+    <title>Atualizar Professor</title>
+</head>
+<body>
+
+<div class="form-container">
+    <form method='post' action="/professores/update/{{ professor.id }}">
+        <div class="form-group">
+            <label for="novo_nome">Nome:</label>
+            <input type="text" name="novo_nome" value="{{ professor.nome }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_cpf">CPF:</label>
+            <input type="text" name="novo_cpf" value="{{ professor.cpf }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_dia">Dia de Nascimento:</label>
+            <input type="number" name="novo_dia" value="{{ professor.data_nascimento.dia }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_mes">Mês de Nascimento:</label>
+            <input type="number" name="novo_mes" value="{{ professor.data_nascimento.mes }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_ano">Ano de Nascimento:</label>
+            <input type="number" name="novo_ano" value="{{ professor.data_nascimento.ano }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="novo_sexo">Sexo:</label>
+            <select name="novo_sexo" required>
+                <option value="M" {% if professor.sexo == 'M' %}selected{% endif %}>Masculino</option>
+                <option value="F" {% if professor.sexo == 'F' %}selected{% endif %}>Feminino</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Atualizar Professor">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
